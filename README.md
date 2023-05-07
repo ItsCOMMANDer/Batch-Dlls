@@ -1,7 +1,7 @@
 # Batch-Dlls
 
 ## Injectoin
-just use mdev-new inject.exe wich you can download source [here](https://github.com/mdev-new/batch_native/blob/master/src/hook.c)
+just use mdev-new inject.exe wich you can download source [here](https://github.com/mdev-new/batch_native/blob/master/src/hook.c).
 
 Usage: `inject.exe filename.dll`
 exsample: `inject.exe math.dll`
@@ -10,6 +10,7 @@ exsample: `inject.exe math.dll`
 
 ### Cos, Sin ands Tan
 Just set the input variable `cosI`/`sinI`/`tanI` to desired Value and get Value by reading the varable `cosO`/`sinO`/`tanO`
+Nomaly rounds Value, but with multipyer can be multipled, multiplyer var : `cosM`/`sinM`/`tanM`
 
 ### Powers
 Set the Value `powB` for basis and `powE` for exponent and get result variable from `powO`
