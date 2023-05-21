@@ -1,8 +1,8 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 #define CreateThreadS(funptr) CreateThread(0,0,funptr,0,0,0)
 
@@ -10,6 +10,10 @@
 
 DWORD CALLBACK Process(LPVOID data) {
 	(void)data; // mark as not used
+    SetEnvironmentVariable("cosM", "0");
+    SetEnvironmentVariable("sinM", "0");
+    SetEnvironmentVariable("tanM", "0");
+    SetEnvironmentVariable("sqrtM", "0");
 
 	while(TRUE) {
 
@@ -43,7 +47,7 @@ DWORD CALLBACK Process(LPVOID data) {
 		static char bufferForSqareroot[32] = {0};
 		static char bufferForSqarerootMultiplyer[32] = {0};
 		GetEnvironmentVariable("sqrtI", bufferForSqareroot, sizeof(bufferForSqareroot));
-		GetEnvironmentVariable("sqrtI", bufferForSqarerootMultiplyer, sizeof(bufferForSqarerootMultiplyer));
+		GetEnvironmentVariable("sqrtM", bufferForSqarerootMultiplyer, sizeof(bufferForSqarerootMultiplyer));
 		char bufferForSqarerootOutput[sizeof(bufferForSqareroot)] = {0};
 		sprintf(bufferForSqarerootOutput, "%g", round(atoi(bufferForSqarerootMultiplyer) * sqrt(atoi(bufferForSqareroot))));
 		SetEnvironmentVariable("sqrtO", bufferForSqarerootOutput);
