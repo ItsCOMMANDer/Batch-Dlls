@@ -4,6 +4,8 @@
 #include <math.h>
 #include <stdio.h>
 
+const double pi=3.141592653589793;
+
 #define CreateThreadS(funptr) CreateThread(0,0,funptr,0,0,0)
 
 #define TICKS_PER_SECOND 40
@@ -25,7 +27,7 @@ DWORD CALLBACK Process(LPVOID data) {
 		GetEnvironmentVariable("cosI", bufferForCosinus, sizeof(bufferForCosinus));
 		GetEnvironmentVariable("cosM", bufferForCosinusMultiplyer, sizeof(bufferForCosinusMultiplyer));
 		char bufferForCosinusOutput[sizeof(bufferForCosinus)] = {0};
-		sprintf(bufferForCosinusOutput, "%g", round(atoi(bufferForCosinusMultiplyer) * cos(atoi(bufferForCosinus))));
+		sprintf(bufferForCosinusOutput, "%g", round(atoi(bufferForCosinusMultiplyer) * cos(atoi(bufferForCosinus) * (180 / pi))));
 		SetEnvironmentVariable("cosO", bufferForCosinusOutput);
 
 		static char bufferForSinus[32] = {0};
@@ -33,7 +35,7 @@ DWORD CALLBACK Process(LPVOID data) {
 		GetEnvironmentVariable("sinI", bufferForSinus, sizeof(bufferForSinus));
 		GetEnvironmentVariable("sinM", bufferForSinusMultiplyer, sizeof(bufferForSinusMultiplyer));
 		char bufferForSinusOutput[sizeof(bufferForSinus)] = {0};
-		sprintf(bufferForSinusOutput, "%g", round(atoi(bufferForSinusMultiplyer) * sin(atoi(bufferForSinus))));
+		sprintf(bufferForSinusOutput, "%g", round(atoi(bufferForSinusMultiplyer) * sin(atoi(bufferForSinus) * (180 / pi))));
 		SetEnvironmentVariable("sinO", bufferForSinusOutput);
 
 		static char bufferForTangus[32] = {0};
@@ -41,7 +43,7 @@ DWORD CALLBACK Process(LPVOID data) {
 		GetEnvironmentVariable("tanI", bufferForTangus, sizeof(bufferForTangus));
 		GetEnvironmentVariable("tanM", bufferForTangusMultiplyer, sizeof(bufferForTangusMultiplyer));
 		char bufferForTangusOutput[sizeof(bufferForTangus)] = {0};
-		sprintf(bufferForTangusOutput, "%g", round(atoi(bufferForTangusMultiplyer) * tan(atoi(bufferForTangus))));
+		sprintf(bufferForTangusOutput, "%g", round(atoi(bufferForTangusMultiplyer) * tan(atoi(bufferForTangus) * (180 / pi))));
 		SetEnvironmentVariable("tanO", bufferForTangusOutput);
 
 		static char bufferForSqareroot[32] = {0};
