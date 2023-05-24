@@ -12,10 +12,10 @@ const double pi=3.141592653589793;
 
 DWORD CALLBACK Process(LPVOID data) {
 	(void)data; // mark as not used
-    SetEnvironmentVariable("cosM", "0");
-    SetEnvironmentVariable("sinM", "0");
-    SetEnvironmentVariable("tanM", "0");
-    SetEnvironmentVariable("sqrtM", "0");
+    SetEnvironmentVariable("cosM", "1");
+    SetEnvironmentVariable("sinM", "1");
+    SetEnvironmentVariable("tanM", "1");
+    SetEnvironmentVariable("sqrtM", "1");
 
 	while(TRUE) {
 
@@ -27,7 +27,7 @@ DWORD CALLBACK Process(LPVOID data) {
 		GetEnvironmentVariable("cosI", bufferForCosinus, sizeof(bufferForCosinus));
 		GetEnvironmentVariable("cosM", bufferForCosinusMultiplyer, sizeof(bufferForCosinusMultiplyer));
 		char bufferForCosinusOutput[sizeof(bufferForCosinus)] = {0};
-		sprintf(bufferForCosinusOutput, "%g", round(atoi(bufferForCosinusMultiplyer) * cos(atoi(bufferForCosinus) * (180 / pi))));
+		sprintf(bufferForCosinusOutput, "%g", round(atoi(bufferForCosinusMultiplyer) * cos(atoi(bufferForCosinus) * pi / 180)));
 		SetEnvironmentVariable("cosO", bufferForCosinusOutput);
 
 		static char bufferForSinus[32] = {0};
@@ -35,7 +35,7 @@ DWORD CALLBACK Process(LPVOID data) {
 		GetEnvironmentVariable("sinI", bufferForSinus, sizeof(bufferForSinus));
 		GetEnvironmentVariable("sinM", bufferForSinusMultiplyer, sizeof(bufferForSinusMultiplyer));
 		char bufferForSinusOutput[sizeof(bufferForSinus)] = {0};
-		sprintf(bufferForSinusOutput, "%g", round(atoi(bufferForSinusMultiplyer) * sin(atoi(bufferForSinus) * (180 / pi))));
+		sprintf(bufferForSinusOutput, "%g", round(atoi(bufferForSinusMultiplyer) * sin(atoi(bufferForSinus) * pi / 180)));
 		SetEnvironmentVariable("sinO", bufferForSinusOutput);
 
 		static char bufferForTangus[32] = {0};
@@ -43,7 +43,7 @@ DWORD CALLBACK Process(LPVOID data) {
 		GetEnvironmentVariable("tanI", bufferForTangus, sizeof(bufferForTangus));
 		GetEnvironmentVariable("tanM", bufferForTangusMultiplyer, sizeof(bufferForTangusMultiplyer));
 		char bufferForTangusOutput[sizeof(bufferForTangus)] = {0};
-		sprintf(bufferForTangusOutput, "%g", round(atoi(bufferForTangusMultiplyer) * tan(atoi(bufferForTangus) * (180 / pi))));
+		sprintf(bufferForTangusOutput, "%g", round(atoi(bufferForTangusMultiplyer) * tan(atoi(bufferForTangus) * pi / 180)));
 		SetEnvironmentVariable("tanO", bufferForTangusOutput);
 
 		static char bufferForSqareroot[32] = {0};
