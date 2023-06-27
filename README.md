@@ -1,10 +1,10 @@
 # Batch-Dlls
 
 ## Injectoin
-just use mdev-new inject.exe wich you can download source [here](https://github.com/mdev-new/batch_native/blob/master/src/hook.c).
+just use rundll32.
 
-Usage: `inject.exe filename.dll`
-exsample: `inject.exe math.dll`
+Usage: `rundll32 filename.dll,inject`
+exsample: `rundll32 math.dll,inject`
 
 You first need to inject evry dll you want to use.
 
